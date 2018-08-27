@@ -22,15 +22,18 @@ pipeline {
             echo $REGISTRY_PASS | docker login quay.io/inviqa/acme --username $REGISTRY_USER --password-stdin
             
             TAG_NGINX="$(ws app get-tag nginx)"
+            TAG_PHP="$(ws app get-tag php-fpm)"
             TAG_CONSOLE="$(ws app get-tag console)"
 
-            docker tag "$(ws app get-image web)"      "$TAG_WEB"
+            docker tag "$(ws app get-image nginx)"    "$TAG_NGINX"
+            docker tag "$(ws app get-image php-fpm)"  "$TAG_PHP"
             docker tag "$(ws app get-image console)"  "$TAG_CONSOLE"
 
-            docker push "$TAG_WEB"
+            docker push "$TAG_NGINX"
+            docker push "$TAG_PHP"
             docker push "$TAG_CONSOLE"
 
-            docker image rm "$TAG_WEB" "$TAG_CONSOLE"
+            docker image rm "$TAG_NGINX" "$TAG_CONSOLE" "$TAG_PHP"
           '''
         }
       }
@@ -44,17 +47,7 @@ pipeline {
         ]) {
           sh '''#!/bin/bash
 
-            ws app docker-stack-config preview > docker-compose.yml
-
-            export SLUG="$(echo $BRANCH_NAME | iconv -t ascii//TRANSLIT | sed -r \'s/[~\\^]+//g\' | sed -r \'s/[^a-zA-Z0-9]+/-/g\' | sed -r \'s/^-+\\|-+$//g\' | tr A-Z a-z)"
-            export STACK="acme-${SLUG}"
-
-            source $DOCKER_DAEMON_CONFIG
-            source $DOCKER_STACK_CONFIG
-
-            echo $REGISTRY_PASS | docker login quay.io/inviqa/acme --username $REGISTRY_USER --password-stdin
-            docker stack deploy -c docker-compose.yml $STACK --with-registry-auth
-
+            
           '''
         }
       }
