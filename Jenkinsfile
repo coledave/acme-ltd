@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    MY127WS_KEY = credentials('acme-my127ws-key')
+    MY127WS_KEY = credentials('acme-my127ws-key1')
     MY127WS_ENV = "jenkins"
   }
   stages {
