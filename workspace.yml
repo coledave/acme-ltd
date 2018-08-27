@@ -1,0 +1,13 @@
+
+workspace('acme'):
+  description: generated local workspace for acme.
+  harness: magento2:master
+
+attribute('aws.bucket'): my127-acme-assets
+attribute('app.repository'): quay.io/inviqa/acme
+
+attribute('aws.id'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoiXEy8KMXMT0zZGYXqMFTpyCerYVy2zR9wIjtpOjI7czozNjoi+ffOrrbbg86Ju3FY4ZqVmicsuE5h/zxiIC4F9UrjlNAUjWZ/Ijt9")'
+attribute('aws.key'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoi7hnvIddYRdtWjmiscRb6RiN3so5EcYDLIjtpOjI7czo1NjoikJVnVrNr9K6wlResqZ2IiWd3QaH1T2ku78Gg1XLY2t/zA3ZU2cq/BylmDC1BzS9XWK/RMDd5SY0iO30=")'
+attribute('magento.username'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoiCLpp5o03l0Pa8LAhg7P6p9NiNqxUYnaqIjtpOjI7czo0ODoi9zfRMazXksFZ0AG2qI3Saf7rmFqjH1AQrDB7wfZdmU6Hb/vCVuYLa2sQtAwnHaJhIjt9")'
+attribute('magento.password'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoisFrmasLAbHEOeD1MgiLsWGA80Te06Es5IjtpOjI7czo0ODoiFWKlbv3qKaMOopDWJu83FqVrgGUyJ1eX6tKdqVDbQvtFBaR94Mfbu/e9UB68WXQIIjt9")'
+attribute('magento.crypt.key'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoiVRuaoDtTiWfqjifZg3oB52QDAfzxZYRrIjtpOjI7czoyNjoiNSTiBexH9WGI8+xtSM1Ys0dXnR5oOp0+eoIiO30=")'
