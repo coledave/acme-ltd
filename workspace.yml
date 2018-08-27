@@ -4,7 +4,7 @@ workspace('acme'):
   harness: magento2:master
 
 attribute('aws.bucket'): my127-acme-assets
-attribute('app.repository'): quay.io/inviqa/acme
+attribute('app.repository'): quay.io/my127/acme
 
 attribute('github.personal-token'): not-needed
 attribute('aws.id'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoiXEy8KMXMT0zZGYXqMFTpyCerYVy2zR9wIjtpOjI7czozNjoi+ffOrrbbg86Ju3FY4ZqVmicsuE5h/zxiIC4F9UrjlNAUjWZ/Ijt9")'
